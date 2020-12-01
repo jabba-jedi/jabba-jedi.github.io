@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>ZooKeeper Deployment · EIS Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Configuration and Deployment"/><meta name="docsearch:version" content="11.13"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="ZooKeeper Deployment · EIS Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://jabba-jedi.github.io/jabba-jedi.github.io/"/><meta property="og:description" content="## Configuration and Deployment"/><meta property="og:image" content="https://jabba-jedi.github.io/jabba-jedi.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://jabba-jedi.github.io/jabba-jedi.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/jabba-jedi.github.io/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://jabba-jedi.github.io/jabba-jedi.github.io/blog/atom.xml" title="EIS Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://jabba-jedi.github.io/jabba-jedi.github.io/blog/feed.xml" title="EIS Documentation Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"/><link rel="stylesheet" href="static/assets/admonition.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/jabba-jedi.github.io/js/scrollSpy.js"></script><link rel="stylesheet" href="/jabba-jedi.github.io/css/main.css"/><script src="/jabba-jedi.github.io/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/jabba-jedi.github.io/"><img class="logo" src="/jabba-jedi.github.io/img/eis-logo-white.png" alt="EIS Documentation"/><h2 class="headerTitleWithLogo">EIS Documentation</h2></a><a href="/jabba-jedi.github.io/versions"><h3>11.13</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">Getting Started</a></li><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">API</a></li><li class=""><a href="/jabba-jedi.github.io/blog/" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Confluence Examples</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Reusable Elements Library<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/doc1">Reusable Elements</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Guide Examples<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/doc2">document number 2</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Confluence Examples<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/zookeeper-deployment">ZooKeeper Deployment</a></li><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/analytics-reporting-dsl">Analytics Framework Reporting DSL</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">ZooKeeper Deployment</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="configuration-and-deployment"></a><a href="#configuration-and-deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration and Deployment</h2>
+<p><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html">ZooKeeper Admin
+Guide</a>
+contains all information that is required to configure and deploy
+ZooKeeper. In short, follow these steps:</p>
+<ol>
+<li><p><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_zkMulitServerSetup">Set up a
+cluster</a>
+with <strong>2*F + 1</strong> nodes,<br>
+where F is the number of nodes that can fail without affecting the
+cluster availability.</p>
+<p><strong>Note:</strong> A dedicated transaction log SSD device is a key to
+consistently good performance. If you put the log on a busy device,
+it will negatively affect performance.</p></li>
+<li><p><a href="https://wiki.eisgroup.com/display/GRC/%5BZC%5D+Authentication+Configuration+Guidelines">Configure SSL
+authentication</a>
+(if required).</p></li>
+<li><p>Define <a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#Ongoing+Data+Directory+Cleanup">ongoing data directory
+cleanup</a>.</p></li>
+<li><p><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_supervision">Setup
+supervision</a>
+to enable cluster self-healing.</p></li>
+<li><p>Enable support for <a href="https://zookeeper.apache.org/doc/r3.5.4-beta/zookeeperProgrammers.html#TTL+Nodes">TTL
+nodes</a>.<br>
+This feature is used by DLQ and if it isn't enabled, unused data
+accumulates in ZooKeeper. If you use <a href="https://hub.docker.com/_/zookeeper">official Zookeeper Docker
+image</a>, you can enable TTL nodes
+support by adding the following section to <code>docker-compose.yml</code>:</p>
+<p><strong>docker-compose.yml</strong>  Expand source</p>
+<pre><code class="hljs css language-yml"><span class="hljs-attr">environment:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">"JVMFLAGS=-Dzookeeper.extendedTypesEnabled=true"</span>
+</code></pre></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="persistent-data"></a><a href="#persistent-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Persistent Data</h3>
+<p>A standalone ZooKeeper requires persistent data. It stores temporal
+runtime state (autodiscovery information, locks, sequence, dead letter
+queue metainformation) but does not store master/transactional data.</p>
+<p>For multi-region disaster recovery scenarios, you don't need to
+replicate standalone ZooKeeper volumes from one region to another. The
+state is recovered from the deployed applications and checkpointed state
+in Cassandra.</p>
+<p>You can deploy a standalone ZooKeeper on Kubernetes or dedicated nodes;
+there are no specific Genesis restrictions. The default option for EIS
+is Kubernetes.</p>
+<h3><a class="anchor" aria-hidden="true" id="hardware-requirements"></a><a href="#hardware-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hardware Requirements</h3>
+<p>We recommend 3 instance for the standalone ZooKeeper. The hardware
+requirements are as follows:</p>
+<ul>
+<li>4GB RAM</li>
+<li>4 vCPU</li>
+<li>100GB SDD</li>
+</ul>
+<p><strong>Kubernetes deployment resource constraint example</strong></p>
+<pre><code class="hljs css language-java">          resources:
+            limits:
+              cpu: <span class="hljs-number">3500</span>m
+              memory: <span class="hljs-number">3072</span>Mi
+            requests:
+              cpu: <span class="hljs-number">2500</span>m
+              memory: <span class="hljs-number">2560</span>Mi
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: config
+volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - <span class="hljs-string">"ReadWriteOnce"</span>
+        resources:
+          requests:
+            storage: <span class="hljs-string">"100Gi"</span>
+        storageClassName: <span class="hljs-string">"managed-premium"</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="monitoring"></a><a href="#monitoring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitoring</h2>
+<p>Use either of the following options to monitor Zookeeper (both manually
+and automatically):</p>
+<ul>
+<li><p><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_zkCommands">The Four Letter
+Words</a>
+Zookeeper commands</p></li>
+<li><p><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperJMX.html">JMX</a></p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="manual-data-management"></a><a href="#manual-data-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manual Data Management</h2>
+<p>For manual CRUD operations, use either of the following tools:</p>
+<ul>
+<li><p>Zookeeper <a href="https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_ConnectingToZooKeeper">Command Line
+Interface</a></p></li>
+<li><p><a href="https://zoonavigator.elkozmon.com/en/docs-pre-v1/">ZooNavigator</a></p></li>
+</ul>
+<p>Both of them are client-side tools, so a developer can install them on
+the workstation and use them to connect to the cluster.</p>
+<h2><a class="anchor" aria-hidden="true" id="zookeeper-in-genesis"></a><a href="#zookeeper-in-genesis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ZooKeeper in Genesis</h2>
+<h3><a class="anchor" aria-hidden="true" id="dead-letter-queue"></a><a href="#dead-letter-queue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dead Letter Queue</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Dead+Letter+Queue">Dead Letter
+Queue</a> uses
+ZooKeeper for keeping queues’ statuses (persistent znodes) and
+information about distributed locks (ephemeral znodes).</p>
+<p>Queues’ statuses are kept in <code>/Genesis/DeadLetterQueue/Queues</code> and they
+contain JSON that describes the queue:</p>
+<h6><a class="anchor" aria-hidden="true" id="dlq-attributes"></a><a href="#dlq-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DLQ Attributes</h6>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><p><strong>Attribute name</strong></p></td>
+<td style="text-align: center;"><p><strong>Correct values</strong></p></td>
+<td style="text-align: center;"><p><strong>Meaning</strong></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><p>status</p></td>
+<td style="text-align: center;"><p>FAILED</p>
+<p>PENDING</p></td>
+<td style="text-align: center;"><p>Current status of a queue. See the <a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Dead+Letter+Queue">DLQ page</a> to find information about queues’ statuses.</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><p>consumerGroup</p></td>
+<td style="text-align: center;"><p>Can be any string, but usually, it’s a fully qualified name of the message handler.</p></td>
+<td style="text-align: center;"><p>Stream message consumer group name.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><p>correlationId</p></td>
+<td style="text-align: center;"><p>Can be any string, but usually, it’s a UUID.</p></td>
+<td style="text-align: center;"><p>Message correlation ID, defined by MessageKey.</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><p>streamName</p></td>
+<td style="text-align: center;"><p>Can be any string.</p></td>
+<td style="text-align: center;"><p>Name of the message’s stream.</p></td>
+</tr>
+</tbody>
+</table>
+<p>See Mapping between Kafka concepts and Stream Messaging API for details.</p>
+<p>Distributed locks are presented by empty znodes:</p>
+<h3><a class="anchor" aria-hidden="true" id="entity-linking"></a><a href="#entity-linking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entity Linking</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/%5BEntity+API%5D+Entity+Linking+Services">Entity Linking
+Service</a> in
+the  <a href="https://wiki.eisgroup.com/display/GRC/Domain+Framework">Domain
+Framework</a> uses
+ZooKeeper for external link resolution, and stores URLs to endpoints for
+loading entities by the links. These links are stored in path
+<code>/Genesis/EntityLinks</code> as persistent znodes with URLs as data:</p>
+<p>The link should be resolvable and the endpoint should be up and running.</p>
+<h3><a class="anchor" aria-hidden="true" id="external-model"></a><a href="#external-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>External Model</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/%5BPlugins%5D+External+Model">External Model
+plugin</a> in
+<a href="https://wiki.eisgroup.com/display/GRC/Modeling+API">Modeling API</a> uses
+ZooKeeper to store and broadcast information about models that is needed
+for model discovery service. The info is stored as JSON data in
+persistent znodes in path <code>/Genesis/External</code>:</p>
+<h6><a class="anchor" aria-hidden="true" id="external-model-attributes"></a><a href="#external-model-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>External Model Attributes</h6>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Attribute name</strong></th><th style="text-align:center"><strong>Correct values</strong></th><th style="text-align:center"><strong>Meaning</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">name</td><td style="text-align:center">String</td><td style="text-align:center"><a href="https://wiki.eisgroup.com/display/GRC/%5BDomain+Framework%5D+Entity+DSL">Entity DSL</a> type name.</td></tr>
+<tr><td style="text-align:center">version</td><td style="text-align:center">String with integer</td><td style="text-align:center">Model version</td></tr>
+<tr><td style="text-align:center">resourceClass</td><td style="text-align:center">String with the fully qualified name of a class</td><td style="text-align:center">Subclass of <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/ModeledResource.html">ModeledResource</a> that represents the entity in runtime</td></tr>
+<tr><td style="text-align:center">location</td><td style="text-align:center">URL</td><td style="text-align:center">URL that is used to load the instance of the modeled resource . The link should be resolvable and the endpoint should be up and running.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="jobs"></a><a href="#jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Jobs</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Jobs">Jobs</a> use
+ZooKeeper to implement executor locks for job executors. They store the
+lock owner (application name) data in persistent znodes in the path
+<code>/Genesis/Lock/Executor</code>:</p>
+<h3><a class="anchor" aria-hidden="true" id="kafka-connector"></a><a href="#kafka-connector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Kafka Connector</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/Kafka+Connector">Kafka
+Connector</a> uses
+ZooKeeper to implement distributed locks that are used to lock the Kafka
+topic deployment to ensure that no more than one deployer deploys the
+same Kafka topic at the same time. The lock info are persistent znodes
+without data in the path <code>/Genesis/Lock/Kafka</code>:</p>
+<h3><a class="anchor" aria-hidden="true" id="metrics-api"></a><a href="#metrics-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Metrics API</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/Metrics+API">Metrics API</a> stores
+application nodes health check info as persistent znodes with JSON data
+in the path <code>/Genesis/HealthCheck</code>:</p>
+<p>The payload is the result of
+<a href="https://www.javadoc.io/doc/io.dropwizard.metrics/metrics-healthchecks/latest/com/codahale/metrics/health/HealthCheckRegistry.html">com.codahale.metrics.health.HealthCheckRegistry#runHealthChecks()</a>
+and it is defined individually for every application by using
+<a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/metrics/MetricRegistryFactory.html">MetricRegistryFactory</a>
+(see <a href="https://metrics.dropwizard.io/4.1.2/">Codahale
+Metrics</a> documentation for
+details). By default, infrastructure provides metrics for <a href="https://wiki.eisgroup.com/display/GRC/Lifecycle">Lifecycle
+Framework</a> and <a href="https://wiki.eisgroup.com/display/GRC/Stream+Messaging">Stream
+Messaging</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="stream-messaging"></a><a href="#stream-messaging" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stream Messaging</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/Stream+Messaging">Stream
+Messaging</a>
+stores stream message metadata and checkpoint info as JSON data in
+persistent znodes in the path <code>/Genesis/Streams</code>:</p>
+<p><img src="attachments/446467017/446467015.png" alt=""></p>
+<p><img src="attachments/446467017/446467016.png" alt=""></p>
+<h6><a class="anchor" aria-hidden="true" id="stream-messaging-attributes"></a><a href="#stream-messaging-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stream Messaging Attributes</h6>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Attribute name</strong></th><th style="text-align:center"><strong>Correct values</strong></th><th style="text-align:center"><strong>Meaning</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">streamName</td><td style="text-align:center">Any string</td><td style="text-align:center">Name of the message’s stream. See <a href="https://wiki.eisgroup.com/display/GRC/Stream+Messaging#StreamMessaging-MappingbetweenKafkaconceptsandStreamMessagingAPI">Mapping between Kafka concepts and Stream Messaging API</a> for details.</td></tr>
+<tr><td style="text-align:center">envelopeType -&gt; typeName</td><td style="text-align:center">Fully qualified class name</td><td style="text-align:center">The class name of Stream message envelope class. It should be a subclass of <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageEnvelope.html">MessageEnvelope</a>.</td></tr>
+<tr><td style="text-align:center">envelopeType -&gt; parent -&gt; typeName</td><td style="text-align:center">Fully qualified class name</td><td style="text-align:center">The class name of the parent class of the message envelope class. It can go several levels deep recursively until it comes to <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageEnvelope.html">MessageEnvelope</a> that is always the last parent.</td></tr>
+<tr><td style="text-align:center">applicationName</td><td style="text-align:center">String</td><td style="text-align:center">Application name that published the metadata that is taken from the <code>genesis.app.name</code> Spring property.</td></tr>
+<tr><td style="text-align:center">checkpointInfo -&gt; partition</td><td style="text-align:center">Integer</td><td style="text-align:center">Kafka Topic <a href="https://kafka.apache.org/21/javadoc/org/apache/kafka/clients/producer/RecordMetadata.html#partition--">partition number</a>.</td></tr>
+<tr><td style="text-align:center">checkpointInfo -&gt; offset</td><td style="text-align:center">Long</td><td style="text-align:center"><a href="https://kafka.apache.org/21/javadoc/org/apache/kafka/clients/producer/RecordMetadata.html#offset--">The offset</a> of the record in the topic/partition.</td></tr>
+<tr><td style="text-align:center">messageMetadata -&gt; hostname</td><td style="text-align:center">String</td><td style="text-align:center">Name of Kafka channel created by <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/communication/DeploymentConfiguration.html#getHostChannel(com.eisgroup.genesis.streams.name.StreamNameFormatter)">DeploymentConfiguration#getHostChannel</a> with using <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/name/StreamNameFormatter.html">StreamNameFormatter</a>.</td></tr>
+<tr><td style="text-align:center">messageMetadata -&gt; messageType -&gt; typeName</td><td style="text-align:center">Fully qualified class name</td><td style="text-align:center">The class name of Stream message payload class. It should be a subclass of <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageBody.html">MessageBody</a>.</td></tr>
+<tr><td style="text-align:center">messageMetadata -&gt; messageType -&gt; parent -&gt; typeName</td><td style="text-align:center">Fully qualified class name</td><td style="text-align:center">The class name of the parent class of the message payload. It can go several levels deep recursively until it comes to <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageBody.html">MessageBody</a> that is always the last parent.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="sequence-generator"></a><a href="#sequence-generator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sequence Generator</h3>
+<p>Sequence Generator stores the current values of the generators as
+persistent znodes in paths like  <code>/genesis-sequence/[keyspace]/[name]</code>
+(see SequenceGenerator Javadoc for details), for instance:</p>
+<p><img src="attachments/446467017/446467007.png" alt=""></p>
+<p>The payload contains current values of the sequences that are generated
+by invoking methods
+of <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/generator/SequenceGenerator.html#next(java.lang.String,java.lang.String)">SequenceGenerator</a>.
+Be aware that removing znodes doesn't break generators, because in that
+case a generator restores itself from the Cassandra checkpoint and it
+guarantees generating unique values after recovery. The only visible
+consequence of removing sequence generators from ZooKeeper is a gap
+between the last generated value before the removal and the first
+generated value after the restoring, and this gap won't be greater than
+the value of the <code>genesis.sequence.checkpoint.size</code> Spring placeholder
+that is 1000 by default.</p>
+<h3><a class="anchor" aria-hidden="true" id="time-shifter"></a><a href="#time-shifter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Time Shifter</h3>
+<p><a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Time+Shifter">Time
+Shifter</a>
+uses ZooKeeper to store current <a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/timeshift/TimeShiftInfo.html">time shift
+info</a>.
+The info is stored as JSON data in persistent znodes in
+path <code>/Genesis/Timeshift</code>:</p>
+<p><img src="attachments/446467017/446467002.png" alt=""></p>
+<h6><a class="anchor" aria-hidden="true" id="time-shift-info-attributes"></a><a href="#time-shift-info-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Time Shift Info Attributes</h6>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Attribute name</strong></th><th style="text-align:center"><strong>Correct values</strong></th><th style="text-align:center"><strong>Meaning</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">shiftId</td><td style="text-align:center">String</td><td style="text-align:center">Unique identifier of the shift operation</td></tr>
+<tr><td style="text-align:center">originalTime</td><td style="text-align:center">String with ISO 8601 datetime</td><td style="text-align:center">Original, non-shifted datetime of the server</td></tr>
+<tr><td style="text-align:center">beforeShift</td><td style="text-align:center">String with ISO 8601 datetime</td><td style="text-align:center">Datetime before shift occured</td></tr>
+<tr><td style="text-align:center">afterShift</td><td style="text-align:center">String with ISO 8601 datetime</td><td style="text-align:center">Datetime after shift occured</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="troubleshooting"></a><a href="#troubleshooting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Troubleshooting</h2>
+<h3><a class="anchor" aria-hidden="true" id="performance-and-consistency-problems"></a><a href="#performance-and-consistency-problems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance and Consistency Problems</h3>
+<p>When profiling shows that ZooKeeper is a bottleneck for all parts of the
+system, or if read/write operations are not consistent, you need to
+check <a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_commonProblems">Things to
+Avoid</a> from
+the ZooKeeper Admin Guide.</p>
+<h3><a class="anchor" aria-hidden="true" id="infinite-reconnect-loop"></a><a href="#infinite-reconnect-loop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Infinite Reconnect Loop</h3>
+<p>When the application is stuck in a reconnect loop spamming
+connected/disconnected messages in logs, that is usually a symptom of
+the following errors:</p>
+<ul>
+<li><p>ZooKeeper IO/network issues with low session timeout configured.<br>
+Solution:</p>
+<ol>
+<li>Check the ZooKeeper server network and disk latency.</li>
+<li>Increase <a href="https://wiki.eisgroup.com/display/GRC/Zookeeper+Connector">session
+timeout</a> matching
+your cluster performance.</li>
+</ol></li>
+<li><p>The application is trying to download a big chunk of data and
+exceeds session timeout.<br>
+Solution:</p>
+<ol>
+<li>Check ZooKeeper<code>/Genesis</code> subfolders for large nodes or a large
+number of children to find the cause.</li>
+<li>Increase session timeout
+and <a href="https://zookeeper.apache.org/doc/r3.3.3/zookeeperAdmin.html#sc_maintenance">jute.maxbuffer</a> property.</li>
+</ol></li>
+<li><p>The application’s JVM is not healthy and is unable to process a
+request in time.<br>
+Solution:</p>
+<ol>
+<li>Check application memory and CPU consumption.</li>
+<li>Increase application heap size if needed.</li>
+</ol></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="externalmodelnotavailableexception-errors-in-logs"></a><a href="#externalmodelnotavailableexception-errors-in-logs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ExternalModelNotAvailableException Errors in Logs</h3>
+<p>Application logs <code>ExternalModelNotAvailableException</code> during
+startup/event-processing means that the external model was not
+registered or resolved properly. This is usually a symptom of one of the
+following:</p>
+<ul>
+<li><p>Unresolvable hostname configured into <code>NM_HOST</code> environment variable
+or <code>HOSTNAME</code> system property.<br>
+Solution:</p>
+<ol>
+<li>Check <code>/Genesis/External</code> ZooKeeper folder contents to find the
+invalid configuration.</li>
+<li>Update configuration so that it points to a resolvable node.</li>
+</ol></li>
+<li><p>The target application is not yet started. Solution: Check the
+Kubernetes
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes">startup/readiness</a> probe
+configuration to avoid exposing unstarted apps.</p></li>
+<li><p>The target application was undeployed. You can ignore such errors as
+they are handled by the retry mechanism.</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="external-link-parsing-problems"></a><a href="#external-link-parsing-problems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>External Link Parsing Problems</h3>
+<h4><a class="anchor" aria-hidden="true" id="jsonvalueformaterror"></a><a href="#jsonvalueformaterror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JsonValueFormatError</h4>
+<p>The application fails to parse external links throwing
+<code>JsonValueFormatError</code> :</p>
+<ul>
+<li><p>A link has an invalid structure. Solution: Make sure that the link
+structure corresponds to the link schema.</p></li>
+<li><p>Link target is unregistered (only applicable to cross-microservice
+link resolution). Solution: check that link model is registered in
+<code>/Genesis/EntityLinks</code>.</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="invocationerror"></a><a href="#invocationerror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>InvocationError</h4>
+<p>The application fails to resolve link throwing &quot;Cannot resolve external
+link&quot; <code>InvocationError</code>:</p>
+<ul>
+<li>The link target is unresolvable.<br>
+Solution:
+<ol>
+<li>Check URI in the <code>/Genesis/EntityLinks</code> link model node.</li>
+<li>Check targeted facade application <code>NM_HOST</code> environment variable
+and <code>HOSTNAME</code> system properties.</li>
+</ol></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="related-pages"></a><a href="#related-pages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Related Pages</h2>
+<h3><a class="anchor" aria-hidden="true" id="platform-javadocs"></a><a href="#platform-javadocs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Platform Javadocs</h3>
+<ul>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/ModeledResource.html" title="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/ModeledResource.html">ModeledResource</a></li>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/name/StreamNameFormatter.html" title="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/name/StreamNameFormatter.html">StreamNameFormatter</a></li>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageBody.html">MessageBody</a></li>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/streams/MessageEnvelope.html">MessageEnvelope</a></li>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/metrics/MetricRegistryFactory.html">MetricRegistryFactory</a></li>
+<li><a href="https://gendocs.eisgroup.com/LATEST/platform/javadoc/com/eisgroup/genesis/communication/DeploymentConfiguration.html#getHostChannel(com.eisgroup.genesis.streams.name.StreamNameFormatter)">DeploymentConfiguration</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="genesis-documentation"></a><a href="#genesis-documentation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Genesis Documentation</h3>
+<ul>
+<li>ZooKeeper Connector: includes <a href="https://wiki.eisgroup.com/display/GRC/%5BZC%5D+Disaster+Recovery">Disaster Recovery
+(DR)</a>
+details</li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Kafka+Connector">Kafka
+Connector</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Lifecycle">Lifecycle</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BEntity+API%5D+Entity+Linking+Services">Entity Linking
+Services</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Domain+Framework">Domain
+Framework</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BDomain+Framework%5D+Entity+DSL">Domain Framework Entity
+DSL</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Metrics+API">Metrics API</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Modeling+API">Modeling API</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BPlugins%5D+External+Model">[Plugins] External
+Model</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Stream+Messaging#StreamMessaging-MappingbetweenKafkaconceptsandStreamMessagingAPI">Mapping between Kafka concepts and Stream Messaging
+API</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Dead+Letter+Queue">Dead Letter
+Queue</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BZC%5D+Configure+SSL+Authentication">Configure SSL Authentication in
+ZooKeeper</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/%5BFeature%5D+Jobs">Define and schedule
+Jobs</a></li>
+<li><a href="https://wiki.eisgroup.com/display/GRC/Stream+Messaging">Stream
+Messaging</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="zookeeper-documentation"></a><a href="#zookeeper-documentation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ZooKeeper Documentation</h3>
+<ul>
+<li><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_commonProblems">Things to avoid when configuring
+Zookeeper</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperJMX.html" title="https://zookeeper.apache.org/doc/r3.4.8/zookeeperJMX.html">ZooKeeper
+JMX</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_supervision">ZooKeeper Administrator's
+Guide</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.4.8/zookeeperAdmin.html#sc_zkCommands">Connecting to
+ZooKeeper</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.3.3/zookeeperAdmin.html#sc_maintenance">ZooKeeper cluster long term
+maintenance</a></li>
+<li><a href="https://zookeeper.apache.org/doc/r3.5.4-beta/zookeeperProgrammers.html#TTL+Nodes">TTL nodes
+support</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="additional-links"></a><a href="#additional-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Additional Links</h3>
+<ul>
+<li><a href="https://hub.docker.com/_/zookeeper">ZooKeeper Docker official
+image</a></li>
+<li><a href="https://kafka.apache.org/21/javadoc/org/apache/kafka/clients/producer/RecordMetadata.html">Kafka RecordMetadata
+Javadocs</a></li>
+<li><a href="https://metrics.dropwizard.io/4.1.2/" title="https://metrics.dropwizard.io/4.1.2/">Codahale
+Metrics</a></li>
+<li><a href="https://zoonavigator.elkozmon.com/en/docs-pre-v1/">ZooNavigator</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes">Kubernetes: Protect slow starting containers with startup
+probes</a></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/jabba-jedi.github.io/docs/11.13/doc2"><span class="arrow-prev">← </span><span>document number 2</span></a><a class="docs-next button" href="/jabba-jedi.github.io/docs/11.13/analytics-reporting-dsl"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#configuration-and-deployment">Configuration and Deployment</a><ul class="toc-headings"><li><a href="#persistent-data">Persistent Data</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li></ul></li><li><a href="#monitoring">Monitoring</a></li><li><a href="#manual-data-management">Manual Data Management</a></li><li><a href="#zookeeper-in-genesis">ZooKeeper in Genesis</a><ul class="toc-headings"><li><a href="#dead-letter-queue">Dead Letter Queue</a></li><li><a href="#entity-linking">Entity Linking</a></li><li><a href="#external-model">External Model</a></li><li><a href="#jobs">Jobs</a></li><li><a href="#kafka-connector">Kafka Connector</a></li><li><a href="#metrics-api">Metrics API</a></li><li><a href="#stream-messaging">Stream Messaging</a></li><li><a href="#sequence-generator">Sequence Generator</a></li><li><a href="#time-shifter">Time Shifter</a></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a><ul class="toc-headings"><li><a href="#performance-and-consistency-problems">Performance and Consistency Problems</a></li><li><a href="#infinite-reconnect-loop">Infinite Reconnect Loop</a></li><li><a href="#externalmodelnotavailableexception-errors-in-logs">ExternalModelNotAvailableException Errors in Logs</a></li><li><a href="#external-link-parsing-problems">External Link Parsing Problems</a></li></ul></li><li><a href="#related-pages">Related Pages</a><ul class="toc-headings"><li><a href="#platform-javadocs">Platform Javadocs</a></li><li><a href="#genesis-documentation">Genesis Documentation</a></li><li><a href="#zookeeper-documentation">ZooKeeper Documentation</a></li><li><a href="#additional-links">Additional Links</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/jabba-jedi.github.io/" class="nav-home"><img src="/jabba-jedi.github.io/img/favicon.ico" alt="EIS Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/jabba-jedi.github.io/docs/doc1.html">Getting Started (or other categories)</a><a href="/jabba-jedi.github.io/docs/doc2.html">Guides (or other categories)</a><a href="/jabba-jedi.github.io/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/jabba-jedi.github.io/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/jabba-jedi.github.io/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/jabba-jedi.github.io/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 EIS</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                appId: 'app-id',
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>

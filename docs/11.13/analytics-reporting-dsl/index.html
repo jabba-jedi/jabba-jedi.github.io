@@ -1,0 +1,804 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Analytics Framework Reporting DSL · EIS Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:version" content="11.13"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Analytics Framework Reporting DSL · EIS Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://jabba-jedi.github.io/jabba-jedi.github.io/"/><meta property="og:description" content="## Overview"/><meta property="og:image" content="https://jabba-jedi.github.io/jabba-jedi.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://jabba-jedi.github.io/jabba-jedi.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/jabba-jedi.github.io/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://jabba-jedi.github.io/jabba-jedi.github.io/blog/atom.xml" title="EIS Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://jabba-jedi.github.io/jabba-jedi.github.io/blog/feed.xml" title="EIS Documentation Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"/><link rel="stylesheet" href="static/assets/admonition.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/jabba-jedi.github.io/js/scrollSpy.js"></script><link rel="stylesheet" href="/jabba-jedi.github.io/css/main.css"/><script src="/jabba-jedi.github.io/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/jabba-jedi.github.io/"><img class="logo" src="/jabba-jedi.github.io/img/eis-logo-white.png" alt="EIS Documentation"/><h2 class="headerTitleWithLogo">EIS Documentation</h2></a><a href="/jabba-jedi.github.io/versions"><h3>11.13</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">Getting Started</a></li><li class="siteNavGroupActive"><a href="/jabba-jedi.github.io/docs/11.13/doc1" target="_self">API</a></li><li class=""><a href="/jabba-jedi.github.io/blog/" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Confluence Examples</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Reusable Elements Library<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/doc1">Reusable Elements</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Guide Examples<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/doc2">document number 2</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Confluence Examples<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/zookeeper-deployment">ZooKeeper Deployment</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/jabba-jedi.github.io/docs/11.13/analytics-reporting-dsl">Analytics Framework Reporting DSL</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Analytics Framework Reporting DSL</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>Analytics DSL interpreter is provided as a parameterized Spark job that
+interprets the DSL resources found in the classpath. For every
+interpreted report a matching table is created in Hive with the report's
+output.</p>
+<p>Report attribute expressions used for setting values in a single table
+must evaluate into primitive values. All non-primitive and/or non-single
+cardinality values can be saved by defining child tables.</p>
+<p>The reporting DSL also supports partitioning strategies (see
+com.eisgroup.genesis.report.partitioning.PartitioningStrategy).</p>
+<p>The DSL works in batch, realtime or checksum modes. Realtime reports
+provide At Least Once fault tolerance semantic.</p>
+<h2><a class="anchor" aria-hidden="true" id="dsl"></a><a href="#dsl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DSL</h2>
+<p>The reports are defined using a custom DSL grammar. The filenames must
+follow this pattern:   <code>reportName</code>.greport. The filename is used to
+find the matching report DSL during run-time.  The reports must be
+stored in the <code>reports</code> folder in the classpath. There can be multiple
+reports defined in a single .greport file.  However, all of the reports
+in the same file must be defined for the same models. It is currently
+possible to define the following using DSL:</p>
+<ul>
+<li>Domain models for which the reports should be generated</li>
+<li>The expressions for report columns</li>
+<li>Top-level filters for filtering out the root data</li>
+<li>Attribute level filters for filtering out inner entities</li>
+<li>Joins with other tables based on expressions</li>
+<li>Children tables</li>
+<li>Joins using RDF or ext. links</li>
+<li>Kafka event sources for initial data</li>
+<li>Versioning configuration for report view creation</li>
+<li>Variations for which the report is applicable</li>
+</ul>
+<p>It is currently assumed that the module containing the report DSL files
+will be compiled with analytics-fgenerator plugin enabled and that the
+dependencies to the models referenced in the DSL will be added.</p>
+<h2><a class="anchor" aria-hidden="true" id="syntax"></a><a href="#syntax" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Syntax</h2>
+<p>The syntax for the DSL is as follows:</p>
+<p><details><summary>Click to expand the DSL Syntax</summary></p>
+<p>
+<pre><code class="hljs css language-java">Import Model {ImportedModelName}
+
+Report {ReportName} {
+    Partitioning {
+        {PartitioningColumns}
+    }
+    Versioning {
+        {AggregatorGroup}
+        {KeyGroup}
+    }
+    Custom from {CustomTableName} {
+        Timestamp {TimestampAttributeName}
+    }
+    Modeled using {ModelName}
+    Variations {
+        {VariationName}
+    }
+    Checksum behavior {ChecksumBehavior}
+}
+
+
+Stream {ReportName} from {StreamPath} in {StreamName},
+Batch {ReportName}[{GlobalFilterName}] {
+    @{FeatureName}({FeatureValue})
+    Attr {AttributeName}: {AttributeType} is {AttributeExpression}
+
+    Filter {AttributeFilterName} {
+        {AttributeFilterExpression}
+    }
+
+    Ref {ChildTableName} is {MultipleAttributesExpression} {
+        {RefBody}
+    }
+
+    Join {TableName} using {
+        {ChildColumn} eq/== {ParentColumn}
+    }
+
+    <span class="hljs-comment">// Join by RDF relationships</span>
+    Join {TableName} using Relationships {
+        {SubjectOrObject} eq/== <span class="hljs-keyword">this</span>
+        predicate eq/== <span class="hljs-string">'{PredicateName}'</span>
+    }
+
+    <span class="hljs-comment">// Join by ModeledLink</span>
+    Join {TableName} using ModeledLink {
+        linkAttribute eq/== {ModeledLinkAttributeName}
+    }
+
+    <span class="hljs-comment">// Join by InternalLink</span>
+    Join {TypeName} using InternalLink {
+        linkAttribute eq/== {InternalLinkAttributeName}
+    }
+
+    <span class="hljs-comment">// Join by SecurityLink</span>
+    Join {TableName} using SecurityLink {
+        linkAttribute eq/== {SecurityLinkAttributeName}
+    }
+}
+
+Filter {GlobalFilterName} {
+    {GlobalFilterExpression}
+}
+</code></pre>
+</p>
+</details>
+<p>with the following placeholders in the curly brackets used:</p>
+<table>
+<thead>
+<tr><th>Placeholder ({..})</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>ImportedModelName</td><td>The name of the model to be imported. When it is used as root for report, the interpreter tries to query specified model and finds applicable table in Cassandra. All variations are queried.</td></tr>
+<tr><td>ReportName</td><td>The name of the actual report.</td></tr>
+<tr><td>PartitioningColumns</td><td>Optional comma separated list of partitioning columns to be used for report (e.g.: year, weekofyear, modelname). See more information about configuring report partitions <a href="#Copyof%5BAnalyticsFramework%5DReportingDSL-ConfiguringReportPartitionsinDSL">here</a>.</td></tr>
+<tr><td>AggregatorGroup</td><td>A comma separated collection of Max/Min(<code>colName1</code>, <code>colName2</code>, ...<code>colNameN</code>) groups that specify the aggregation columns for report view.</td></tr>
+<tr><td>KeyGroup</td><td>A comma separated collection of Key(<code>attrName1</code>, <code>attrName2, ...attrNameN</code>) groups that specify the keys of the report entities. Do note that the keys must be present in <strong>all</strong> of the entities.</td></tr>
+<tr><td>CustomTableName</td><td>Schema name and table name of the Cassandra table to be used as root for report. The interpreter queries specified table in Cassandra. Should be specified only if the report is generated for non modeled entities.</td></tr>
+<tr><td>TimestampAttributeName</td><td>An optional parameter that specifies the root entity's attribute containing the date to be used for partitioning and filtering the initial set of data. Can be set for custom data sources only as all modeled entities contain _timestamp attribute.</td></tr>
+<tr><td>ModelName</td><td>The name of the model from which the report should be generated.</td></tr>
+<tr><td>VariationName</td><td>The name of the variation for which the data should be queried. Should be specified if the report is for modeled entities and for model that has more than 1 variation.</td></tr>
+<tr><td>ChecksumBehavior</td><td>Specifies the default behavior for all of the attributes when calculating the checksum. Possible values are: <code>include, exclude</code>. Set to <code>include</code>by default. The default behavior can be overridden by applying features on the attributes.</td></tr>
+<tr><td>StreamPath</td><td>The name and the path from the stream event to subscribe to. Global filters are supported anywhere in path. Example: <code>CommandExecutedEvent.output</code> <code>[MatchesCriteria].</code></td></tr>
+<tr><td>StreamName</td><td>The stream name to subscribe to.</td></tr>
+<tr><td>GlobalFilterName</td><td>An optional parameter that specifies the filter name to apply on the root entities</td></tr>
+<tr><td>FeatureName</td><td>The name of the feature to apply on the attribute</td></tr>
+<tr><td>FeatureValue</td><td>The value of the feature</td></tr>
+<tr><td>AttributeName</td><td>The name of the resulting attribute</td></tr>
+<tr><td>AttributeType</td><td>Optional, the resulting type of the attribute, can be either of: <code>Date, DateTime, Number, String.</code>If no type is specified, <code>String</code>is used by default.</td></tr>
+<tr><td>AttributeExpression</td><td>The expression to resolve the value for the attribute. If no expression is defined, the interpreter tries to get the value from the root entity by the name of the attribute</td></tr>
+<tr><td>AttributeFilterName</td><td>The name of the filter that can be used to filter out child entities. Do note that the attribute filters are optional.</td></tr>
+<tr><td>AttributeFilterExpression</td><td>The expression for the attribute filter</td></tr>
+<tr><td>ChildTableName</td><td>Name of the child table to be created from non-primitive or non-single cardinality attribute of the main table.</td></tr>
+<tr><td>MultipleAttributesExpression</td><td>Comma separated list of AttributeExpressions. Be aware that every expression should be calculable from the place it's defined in.</td></tr>
+<tr><td>RefBody</td><td>The body of the child table definition, can contain attribute expressions, filters, joins or children.</td></tr>
+<tr><td>TableName</td><td>The name of the table to join with. The interpreter automatically assumes the schema based on the root entity for which the report is generated. Do note that the joins are optional.</td></tr>
+<tr><td>ChildColumn</td><td>The name of the child column to join on</td></tr>
+<tr><td>ParentColumn</td><td>The name of the parent attribute to join on</td></tr>
+<tr><td>SubjectOrObject</td><td>&quot;subject&quot; or &quot;object&quot;. Used for join by RDF relationships. If it is &quot;subject&quot; - interpreter looks for related &quot;object&quot; to be joined with the root table (and vice-versa).</td></tr>
+<tr><td>PredicateName</td><td>Name of the predicate that is used in RDF relationship.</td></tr>
+<tr><td>ModeledLinkAttributeName</td><td>Name of the attribute that holds value of modeled link.</td></tr>
+<tr><td>SecurityLinkAttributeName</td><td>Name of the attribute that holds value of security link.</td></tr>
+<tr><td>GlobalFilterName</td><td>The name of the root entity filter. Do note that the global filters are optional.</td></tr>
+<tr><td>GlobalFilterExpression</td><td>The global filter expression.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="attribute-expressions"></a><a href="#attribute-expressions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attribute Expressions</h3>
+<p>Attribute expressions are used to define the actual output attributes
+for the report.</p>
+<p>Currently, the following attribute operations are supported by the
+interpreter:</p>
+<ul>
+<li>Arithmetic operations that require the resolved attributes to be
+numbers:
+<ul>
+<li>Multiplication</li>
+<li>Division</li>
+<li>Addition</li>
+<li>Subtraction</li>
+</ul></li>
+<li>Aggregation operations that require the resolved attributes to be
+collections:
+<ul>
+<li>Sum</li>
+<li>Avg</li>
+<li>Min</li>
+<li>Max</li>
+<li>Count</li>
+<li>First</li>
+<li>Last</li>
+<li>Reduce - reduces values of ReportPrimitive collection to single
+StringPrimitive separating values by provided delimiter</li>
+</ul></li>
+<li>Special operations:
+<ul>
+<li>Path - used to resolve the actual value for the subsequent
+operations. Collections are automatically exploded if found in
+path</li>
+<li>Precedence - used to denote some operation precedence using
+brackets</li>
+<li>ExtLinkAsType - resolves the entity type from the link attribute</li>
+<li>ExtLinkAsId - resolves the entity id from the link attribute</li>
+<li>ExtLinkAsRevision - resolves revision number (if any) from the
+link attribute</li>
+</ul></li>
+<li>Cast operations:
+<ul>
+<li>(operation) as castType - used to implicitly convert the inner
+operation to the specified type. All attribute types are
+supported</li>
+</ul></li>
+<li>Logical operations:
+<ul>
+<li>:? - the Elvis operator that selects the left operation if it is
+not null, right operation otherwise</li>
+</ul></li>
+</ul>
+<pre><code class="hljs css language-java">Attr mult is foo * bar
+Attr div is foo / bar
+Attr add is foo + bar
+Attr rem is foo - <span class="hljs-function">bar
+Attr sum is <span class="hljs-title">Sum</span><span class="hljs-params">(foo)</span>
+Attr avg is <span class="hljs-title">Avg</span><span class="hljs-params">(foo)</span>
+Attr min is <span class="hljs-title">Min</span><span class="hljs-params">(foo)</span>
+Attr max is <span class="hljs-title">Max</span><span class="hljs-params">(foo)</span>
+Attr count is <span class="hljs-title">Count</span><span class="hljs-params">(foo)</span>
+Attr first is <span class="hljs-title">First</span><span class="hljs-params">(foo)</span>
+Attr path is foo.bar[filter].baz
+Attr precedence <span class="hljs-title">is</span> <span class="hljs-params">(foo + bar)</span> * bar
+Attr linkType is <span class="hljs-title">ExtLinkAsType</span><span class="hljs-params">(foo)</span>
+Attr linkId is <span class="hljs-title">ExtLinkAsId</span><span class="hljs-params">(foo)</span>
+Attr linkRevision is <span class="hljs-title">ExtLinkAsRevision</span><span class="hljs-params">(foo)</span>
+Attr last is <span class="hljs-title">Last</span><span class="hljs-params">(foo)</span>
+Attr reduced is <span class="hljs-title">Reduce</span><span class="hljs-params">(foo, <span class="hljs-string">","</span>)</span>
+Attr casted <span class="hljs-title">is</span> <span class="hljs-params">(foo)</span> as Date
+Attr elvis is foo ?: bar
+Attr elvisDate <span class="hljs-title">is</span> <span class="hljs-params">(foo ?: bar)</span> as Date
+</span></code></pre>
+<p>The attribute types are automatically inferred from the context. It is
+possible to mix and match operations to create complex attribute
+expressions.</p>
+<p>Arithmetic operations are not allowed on dates</p>
+<h3><a class="anchor" aria-hidden="true" id="filter-expressions"></a><a href="#filter-expressions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter Expressions</h3>
+<h4><a class="anchor" aria-hidden="true" id="attribute-filter-expressions"></a><a href="#attribute-filter-expressions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attribute Filter Expressions</h4>
+<p>Attribute filter expressions are used to define filters for path
+operations. It is implicitly assumed that the attribute on which the
+filter is applied will be an object or an array of objects.</p>
+<h4><a class="anchor" aria-hidden="true" id="global-filter-expressions"></a><a href="#global-filter-expressions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Global Filter Expressions</h4>
+<p>Global filter expressions are used to define filters for root entity's
+attributes. Be aware that in batch reports global filter expressions are
+translated into expression in Cassandra WHERE clause. It means that the
+global filter expression can contains only operators that both supported
+by the DSL and Cassandra, for instance != cannot be used due Cassandra
+doesn't support it.</p>
+<h4><a class="anchor" aria-hidden="true" id="patterns"></a><a href="#patterns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Patterns</h4>
+<p>The pattern for both filter expression types is as follows:</p>
+<pre><code class="hljs css language-java">{AttributeName} {Operation} {Value}
+</code></pre>
+<p>with {..} placeholder values used</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>Placeholder ({..})</p></th>
+<th><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre><code class="hljs">AttributeName</code></pre></td>
+<td>The name of the context object's attribute</td>
+</tr>
+<tr class="even">
+<td>Operation</td>
+<td><p>The filter operation type, possible values:</p>
+<ul>
+<li>eq/==</li>
+<li>ne/!=</li>
+<li>in</li>
+<li>&lt;</li>
+<li>&lt;=</li>
+<li>&gt;</li>
+<li>&gt;=</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Value</td>
+<td>The value to compare against</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="hljs css language-java">Filter Global {
+    foo eq <span class="hljs-string">"bar"</span>
+    foo == <span class="hljs-string">"bar"</span>
+    bar ne <span class="hljs-string">"bar"</span>
+    bar != <span class="hljs-string">"bar"</span>
+    <span class="hljs-function">bar <span class="hljs-title">in</span> <span class="hljs-params">(<span class="hljs-string">"bar"</span>, <span class="hljs-string">"baz"</span>, <span class="hljs-string">'qux'</span>)</span>
+    baz &lt; 5
+    qux &lt;</span>= <span class="hljs-number">5.5</span>
+    quux &gt; <span class="hljs-number">5</span>
+    quuux &gt;= <span class="hljs-number">5.5</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="features"></a><a href="#features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h3>
+<p>The following features are supported by the analytics DSL interpreter:</p>
+<table>
+<thead>
+<tr><th>Feature Name</th><th>Feature Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Description</td><td>The description text</td><td>The custom description to set for the attribute in the DSL schema information table.</td></tr>
+<tr><td>ChecksumInclude</td><td>-</td><td>Specifies that this attribute should be included into a checksum when the default checksum behavior is set to <code>exclude</code></td></tr>
+<tr><td>ChecksumExclude</td><td>-</td><td>Specifies that this attribute should be excluded from checksum when the default checksum behavior is set to <code>include</code></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="dsl-example"></a><a href="#dsl-example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DSL Example</h3>
+<p>The following example contains a fully functional DSL that creates a
+report for presonal auto quote premiums:</p>
+<pre><code class="hljs css language-java">Import Model PersonalAuto
+
+Report QuotePremiums {
+    Modeled using PersonalAuto
+    Variations {
+        quote
+    }
+}
+
+Stream QuotePremiums from CommandExecutedEvent.output[IsRatedQuote] in GEvents_PersonalAuto,
+Batch QuotePremiums[IsRatedQuote] {
+    <span class="hljs-comment">// Attribute declarations</span>
+    Attr quoteNumber is policyNumber
+    Attr quoteStatus is state
+    Attr quoteInitiationDate: DateTime is accessTrackInfo.createdOn
+    Attr quoteTransactionType is transactionDetails.<span class="hljs-function">txType
+    Attr termPremium is <span class="hljs-title">Sum</span><span class="hljs-params">(PremiumComposite.premiumAggregates.premiumEntries[IsGWP].termAmount.amount)</span>
+
+    <span class="hljs-comment">// Attribute filter predicates</span>
+    Filter IsGWP </span>{
+        premiumCode == <span class="hljs-string">"GWP"</span>
+    }
+
+    <span class="hljs-comment">// Join-table statements</span>
+    Join PremiumComposite
+}
+
+Filter IsRatedQuote {
+    <span class="hljs-function">state <span class="hljs-title">in</span> <span class="hljs-params">(<span class="hljs-string">"rated"</span>, <span class="hljs-string">"bound"</span>, <span class="hljs-string">"proposed"</span>)</span>
+}
+</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="root-level-join"></a><a href="#root-level-join" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Root Level Join</h4>
+<p>Simple join statements within the same model (by &quot;rootId&quot; and
+&quot;revisionNo&quot;) can be written more concisely, for example:</p>
+<pre><code class="hljs css language-java">Join PremiumAggregate using {
+    rootId == rootId
+    revisionNo == revisionNo
+}
+</code></pre>
+<p>Is equivalent to:</p>
+<pre><code class="hljs css language-java">Join PremiumAggregate
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="child-level-join"></a><a href="#child-level-join" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Child Level Join</h4>
+<p>If a join is defined within a Ref:</p>
+<pre><code class="hljs css language-java">Ref LineOfBusiness is AutoLOB {
+    <span class="hljs-function">Attr numberOfRiskItems is <span class="hljs-title">Count</span><span class="hljs-params">(AutoVehicle)</span>
+
+    <span class="hljs-comment">// Join-table statements</span>
+    Join AutoVehicle
+}
+</span></code></pre>
+<p>Then it is equivalent to:</p>
+<pre><code class="hljs css language-java">Ref LineOfBusiness is AutoLOB {
+    <span class="hljs-function">Attr numberOfRiskItems is <span class="hljs-title">Count</span><span class="hljs-params">(AutoVehicle)</span>
+
+    <span class="hljs-comment">// Join-table statements</span>
+    Join AutoVehicle using </span>{
+        rootId == rootId
+        revisionNo == revisionNo
+        parentId == id
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="optimizing-children-table-amount"></a><a href="#optimizing-children-table-amount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimizing Children Table Amount</h2>
+<p>The DSL creates new Hive table for every <strong>Ref</strong> that in complex reports
+leads to huge amount of tables with virtually the same structure. For
+instance, if the report has 10 places where <strong>AutoAddressInfo</strong> entity
+is used for <strong>Ref</strong>, there will be 10 different tables with address
+info. To avoid such duplication and make report generating faster, for
+such cases it's recommended to create single <strong>Ref</strong> with multiple
+attribute expressions, like:</p>
+<pre><code class="hljs css language-java">Ref AutoAddressInfo is
+        AutoVehicle.garagingAddress,
+        AutoVehicle.additionalInterests.address,
+        parties.personInfo.addressInfo,
+        prefillInfo.address,
+        billingInfo.address {
+    ...
+}
+</code></pre>
+<p>For such definition, single table <strong>AutoAddressInfo</strong> will be created
+with information for the specified attributes.</p>
+<p>Still this feature has limitation - it should be used only for modeled
+entities to ensure that <strong>parentId</strong> is set correctly. In all modeled
+entities there is a <strong>_key.parentId</strong> attribute that correctly points
+to the parent of the entity, so this attribute is used by DSL. But in
+non-modeled entities there is no such attribute, so <strong>parentId</strong> is set
+to <strong>id</strong> of the entity the <strong>Ref</strong> is defined in. For the example
+above, if address is not a modeled entity and the <strong>Ref</strong> is defined
+inside of <strong>Policy</strong>, all rows in <strong>AutoAddressInfo</strong> table will have
+<strong>parentId</strong> == <strong>Policy.id</strong> despite of the fact that they actually
+have different parents and the <strong>Policy</strong> is not a parent for any of
+them.</p>
+<h2><a class="anchor" aria-hidden="true" id="schemas"></a><a href="#schemas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schemas</h2>
+<p>There are three types of schemas generated for the report output in
+Hive: for realtime, batch and joined data. In every schema, a new table
+is created for every entity from the report DSL. The root table has the
+same name as the report, the child tables have the names assigned
+to Ref attribute. The report schema contains the views that join the
+data from both schemas using the Versioning rules in the DSL. By
+default, the tables are joined by selecting distinct rootId and max
+revisionNo from the entities. The views are generated if at least one of
+the report data sources are provided (either Batch or Realtime). If the
+DSL is updated, the columns are never removed, new columns are added to
+existing tables and nulls are set in place of old columns for the new
+data.</p>
+<p>The naming rules are as follows:</p>
+<ul>
+<li>For batch mode data - {ReportName} BaseDSL.{TableName}</li>
+<li>For realtime mode data - { ReportName} IncrementalDSL .{TableName}</li>
+<li>For report data - { ReportName} Report DSL .{TableName}</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="running-the-interpreter"></a><a href="#running-the-interpreter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running the Interpreter</h3>
+<p>The main entry point for the job is
+the com.eisgroup.genesis.report.dsl.SparkDslRunner  class. This class
+runs the DSL interpreter. It expects to be provided with the following
+configuration properties:</p>
+<table>
+<thead>
+<tr><th>Spark configuration parameter</th><th>Is required</th><th style="text-align:center">Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>spark.genesis.report.dsl</td><td>true</td><td style="text-align:center">-</td><td>The file name of the DSL to interpret from the fat-jar</td></tr>
+<tr><td>spark.genesis.report.type</td><td>false</td><td style="text-align:center">batch</td><td>Type of job to start <strong>batch</strong>, <strong>realtime</strong> or ****checksum****</td></tr>
+<tr><td>spark.genesis.schema.prefix</td><td>false</td><td style="text-align:center">-</td><td>Specifies a prefix to be added to hive schema name</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="deployment"></a><a href="#deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deployment</h2>
+<p>The interpreter job can be deployed as any other spark job using the
+existing analytics infrastructure provided by Genesis. A custom module
+needs to be created that depends on the  analytics-api.  The module
+should be packaged as a fat-jar with DSL definitions. The job can then
+be deployed using the  analytics-deployer.</p>
+<p>Do not forget to include analytics-fgenerator in the module definition
+as well as the dependencies on domains for which the report will be
+created.</p>
+<h2><a class="anchor" aria-hidden="true" id="configuring-report-partitions-in-dsl"></a><a href="#configuring-report-partitions-in-dsl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring Report Partitions in DSL</h2>
+<p>In order to specify partitioning columns in DSL file - comma separated
+partitioning columns should be listed in a &quot;Partitioning&quot; block within
+&quot;Report&quot; block of a .greport file. Below is example of DSL syntax that
+should be used for this configuration.</p>
+<pre><code class="hljs css language-java">Report SomeReport {
+    Partitioning {
+        {TimeColumns}, modelname, {BodyColumns}
+    }
+}
+
+Stream SomeReport from {StreamPath} in {StreamName},
+Batch SomeReport {
+    {BodyColumns}
+
+    Ref SomeChildTable {
+        {BodyColumns}
+    }
+}
+</code></pre>
+<p>There are three types (groups) of columns that can be specified in
+&quot;Partitioning&quot; block (all of them should be named in lowercase):</p>
+<ol>
+<li>Time columns - (required) these are reserved time columns that have
+their values calculated automatically when running spark job. It is
+mandatory that a supported set of time columns is used for
+partitioning.<br>
+Supported combinations of time columns (columns must be specified in
+given order):
+<ol>
+<li><p><code>year</code>;</p></li>
+<li><p><code>year, month</code>;</p></li>
+<li><p><code>year, month, dayofmonth</code>;</p></li>
+<li><p><code>year, weekofyear</code>;</p></li>
+<li><p><code>year, dayofyear</code>.</p></li>
+</ol></li>
+<li>&quot;modelname&quot; column - (required) &quot;<code>modelname</code>&quot; is a mandatory column
+for partitioning and its value is automatically set when running
+spark job.</li>
+<li>Body columns - (optional) these are custom partitioning columns that
+can be taken from the body of report. Such columns must:
+<ol>
+<li>be of type Number or String;</li>
+<li>be named in lowercase;</li>
+<li>be also present in &quot;Batch&quot; block (and &quot;Stream&quot; if it is defined
+as a separate block) and in all inner &quot;Ref&quot; blocks of the
+report;</li>
+<li>not be empty.</li>
+</ol></li>
+</ol>
+<p>Additional notes:</p>
+<ul>
+<li>Partitioning column groups in &quot;Partitioning&quot; block can be listed in
+any chosen order (e.g.:  modelname -&gt; {BodyColumns} -&gt;
+{TimeColumns} or {BodyColumns} -&gt; modelname -&gt; {TimeColumns}).
+However, recommended order of partitioning columns is: {TimeColumns}
+-&gt; &quot;modelname&quot; -&gt; {BodyColumns}.</li>
+<li>Partitioning columns specified in “Partitioning” block are
+propagated to all tables of the report and used for partitioning.</li>
+<li>Partitioning columns in Hive are created in the same order as they
+are listed in the “Partitioning” block.</li>
+<li>Number of partitioning columns is not limited.</li>
+<li>Usage of time-based columns (year, month, weekofyear, dayofyear,
+dayofmonth) in &quot;Batch&quot; and &quot;Ref&quot; blocks is not restricted by
+validation, but it's not recommended as partitioning value would
+take precedence in case of conflict (value assigned in report body
+would be lost). For example:
+<ul>
+<li>if &quot;year&quot; is used in report body and in Partitioning block - the
+value assigned in report body will be overriden by time value
+calculated in DslPartitioningStrategy (&quot;year&quot; column will hold
+calculated partitioning value (e.g. 2020)).</li>
+<li>if &quot;dayofmonth&quot; is used in report body, but is not used in
+Partitioning block - &quot;dayofmonth&quot; will be created as a regular
+column and will contain the value that was assigned in report
+body.</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="validation"></a><a href="#validation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validation</h3>
+<p>Below is a table with examples of valid and invalid DSL syntax for
+partition configuration.</p>
+<table>
+<thead>
+<tr><th></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Partitioning { &lt;...&gt; }</td><td>Batch { &lt;...&gt; }</td><td>Is Valid?</td><td>Comment</td></tr>
+<tr><td>- No “Partitioning” block is defined in DSL</td><td>Attr attributeOne</td><td>Yes</td><td>If no “Partitioning” block is defined in DSL, then DefaultPartitioningStrategy will be used.</td></tr>
+<tr><td>year, weekofyear, modelname</td><td>- No attributes from &quot;Partitioning&quot; block</td><td>Yes</td><td>If partitioning column name matches one of predefined time column names it does not need to be declared in “Batch” block because its value will be calculated automatically from “timestamp” using SQL functions provided by Spark .</td></tr>
+<tr><td>year, weekofyear, modelname, attributeOne</td><td>Attr attributeOne: String</td><td>Yes</td><td>Same as above, except it has additional partitioning attribute from report body. Such attribute must be of String or Number type.</td></tr>
+<tr><td>attributeOne, year, weekofyear, modelname</td><td>Attr attributeOne: String</td><td>Yes</td><td>Same as above, except columns are in different order.</td></tr>
+<tr><td>year, dayofmonth, modelname</td><td>- No attributes from &quot;Partitioning&quot; block</td><td>No</td><td>In valid combination of time columns. In order to use &quot;dayofmonth&quot; there must also be &quot;month&quot; column (e.g. year, month, dayofmonth).</td></tr>
+<tr><td>year, weekofyear</td><td>- No attributes from &quot;Partitioning&quot; block</td><td>No</td><td>Mandatory attribute &quot;modelname&quot; is missing in &quot;Partitioning&quot; block.</td></tr>
+<tr><td>year, weekofyear, modelname, attributeOne</td><td>Attr attributeOne: DateTime</td><td>No</td><td>DateTime type is not supported for partitioning columns, only String or Number attributes may be used for partitioning.</td></tr>
+<tr><td>year, modelname, attributeOne</td><td>- No “attributeOne” attribute</td><td>No</td><td>“attributeOne” is not one of reserved time column names, so it must be present in the main body of report.</td></tr>
+<tr><td>year, modelname</td><td>Attr year</td><td>Yes</td><td>It will not fail, but the value from &quot;Batch&quot; block will be overriden by automatically calculated &quot;year&quot; value.</td></tr>
+<tr><td>attributeOne</td><td>Attr attributeOne</td><td>No</td><td>Partitioning columns must contain at least one time based column and &quot;modelname&quot; (e.g. year, modelname).</td></tr>
+</tbody>
+</table>
+<p>Below is an example of a valid partitioning column configuration:</p>
+<pre><code class="hljs css language-java">Report SomeReport {
+    Partitioning {
+        year, month, modelname, bodyattribute2, bodyattribute1
+    }
+}
+
+Stream SomeReport from {StreamPath} in {StreamName},
+Batch SomeReport {
+    Attr bodyattribute1: Number is &lt;...&gt;
+    Attr bodyattribute2: String is &lt;...&gt;
+
+    Ref SomeChildTable {
+        Attr bodyattribute1: Number is &lt;...&gt;
+        Attr bodyattribute2: String is &lt;...&gt;
+    }
+}
+</code></pre>
+<p>Such configuration would result in following partitioning columns (in
+order):</p>
+<ol>
+<li>year - value is calculated automatically from applied timestamp;</li>
+<li>month - value is calculated automatically from applied timestamp;</li>
+<li>modelname - value is set automatically;</li>
+<li>bodyattribute2 - value is taken from the attribute in &quot;Batch&quot; block;</li>
+<li>bodyattribute1 - value is taken from the attribute in &quot;Batch&quot; block.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="measuring-dsl-performance"></a><a href="#measuring-dsl-performance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Measuring DSL Performance</h2>
+<p>DSL report processing contains the following main stages:</p>
+<ol>
+<li>Updating schema</li>
+<li>Creating schema info</li>
+<li>Loading and transformation</li>
+<li>Saving data the transformed data</li>
+<li>Saving checksums</li>
+</ol>
+<p>There is instrumentation for every stage that allows to collect and log
+execution time. By default the instrumentation is disabled and it can be
+enabled and tuned by the following Spark configuration parameters:</p>
+<table>
+<thead>
+<tr><th>Spark configuration parameter</th><th>Is required</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>spark.genesis.gauge.enabled</td><td>No</td><td>false</td><td>Enables collection and logging execution time of stages.</td></tr>
+<tr><td>spark.genesis.gauge.logging.level</td><td>No</td><td>info</td><td>Measurements logging level. Can be either <strong>trace</strong>, <strong>debug</strong>, <strong>info</strong>, <strong>warn</strong>, or <strong>error</strong>.</td></tr>
+<tr><td>spark.genesis.gauge.threshold</td><td>No</td><td>0</td><td>The execution time threshold. If execution time is less than the threshold, it isn't logged.</td></tr>
+</tbody>
+</table>
+<p>All records are logged for
+com.eisgroup.genesis.report.util.ExecutionTimeGauge logger, and they
+have the following CSV-like format for further processing:</p>
+<pre><code class="hljs css language-java">[logging prefix],[log message],[rootId],[revisionNo],[id],[execution time in milliseconds]
+</code></pre>
+<p>There is an example of how such a log can look like:</p>
+<p><details><summary>Example of logged perf measurements</summary></p>
+<p>
+<pre><code class="hljs css language-java"><span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">52</span>:<span class="hljs-number">56</span>,<span class="hljs-number">157</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">52</span>:<span class="hljs-number">56</span>,<span class="hljs-number">157</span> INFO util.ExecutionTimeGauge: ,Updating schema,,,,<span class="hljs-number">13964</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">11</span>,<span class="hljs-number">475</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">11</span>,<span class="hljs-number">475</span> INFO util.ExecutionTimeGauge: ,Creating schema info,,,,<span class="hljs-number">15318</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">15</span>,<span class="hljs-number">944</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">15</span>,<span class="hljs-number">944</span> INFO util.ExecutionTimeGauge: ,join with AutoBLOBDgig,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,<span class="hljs-number">1</span>,,<span class="hljs-number">84</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">15</span>,<span class="hljs-number">958</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">15</span>,<span class="hljs-number">958</span> INFO util.ExecutionTimeGauge: ,join with AutoLOBDgig,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,<span class="hljs-number">1</span>,,<span class="hljs-number">14</span>
+...
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">220</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">220</span> INFO util.ExecutionTimeGauge: ,root processing,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,<span class="hljs-number">1</span>,,<span class="hljs-number">365</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">234</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">234</span> INFO util.ExecutionTimeGauge: ,exploding child,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,<span class="hljs-number">1</span>,,<span class="hljs-number">4</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">252</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">252</span> INFO util.ExecutionTimeGauge: ,merging child,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,,<span class="hljs-number">4</span>c26c594-<span class="hljs-number">0</span>ee0-<span class="hljs-number">486</span>c-abf5-<span class="hljs-number">29</span>b050f299bd,<span class="hljs-number">1</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">253</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">16</span>,<span class="hljs-number">253</span> INFO util.ExecutionTimeGauge: ,merging child,e2e9f0a9-<span class="hljs-number">4285</span>-<span class="hljs-number">4</span>b5d-ab43-<span class="hljs-number">353022</span>a626a6,,<span class="hljs-number">65</span>d7ae64-<span class="hljs-number">7386</span>-<span class="hljs-number">48f</span>5-<span class="hljs-number">8</span>a4b-<span class="hljs-number">8</span>cb164a8355a,<span class="hljs-number">1</span>
+...
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">983</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">983</span> INFO util.ExecutionTimeGauge: ,root processing,d185e197-<span class="hljs-number">9</span>c52-<span class="hljs-number">485f</span>-<span class="hljs-number">8970</span>-<span class="hljs-number">923</span>aa7e3f781,<span class="hljs-number">2</span>,,<span class="hljs-number">30</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">985</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">985</span> INFO util.ExecutionTimeGauge: ,merging child,d185e197-<span class="hljs-number">9</span>c52-<span class="hljs-number">485f</span>-<span class="hljs-number">8970</span>-<span class="hljs-number">923</span>aa7e3f781,,<span class="hljs-number">95</span>ab3f93-d7d0-<span class="hljs-number">4</span>dab-<span class="hljs-number">9</span>b06-a3737b0c1b10,<span class="hljs-number">1</span>
+...
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">992</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">53</span>:<span class="hljs-number">30</span>,<span class="hljs-number">992</span> INFO util.ExecutionTimeGauge: ,exploding child,d185e197-<span class="hljs-number">9</span>c52-<span class="hljs-number">485f</span>-<span class="hljs-number">8970</span>-<span class="hljs-number">923</span>aa7e3f781,<span class="hljs-number">2</span>,,<span class="hljs-number">1</span>
+...
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">54</span>:<span class="hljs-number">24</span>,<span class="hljs-number">467</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">54</span>:<span class="hljs-number">24</span>,<span class="hljs-number">467</span> INFO util.ExecutionTimeGauge: ,saving DF <span class="hljs-keyword">for</span> AutoPolicyCoverageCategory,,,,<span class="hljs-number">5940</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">54</span>:<span class="hljs-number">29</span>,<span class="hljs-number">822</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">54</span>:<span class="hljs-number">29</span>,<span class="hljs-number">822</span> INFO util.ExecutionTimeGauge: ,saving DF <span class="hljs-keyword">for</span> Policy_AutoPolicyPersonPhoneCommunicationInfo,,,,<span class="hljs-number">5355</span>
+...
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">01</span>,<span class="hljs-number">990</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">01</span>,<span class="hljs-number">990</span> INFO util.ExecutionTimeGauge: ,Persist checksum <span class="hljs-keyword">for</span> AutoPolicyCoverageCategory,,,,<span class="hljs-number">20230</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">22</span>,<span class="hljs-number">276</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">22</span>,<span class="hljs-number">276</span> INFO util.ExecutionTimeGauge: ,Persist checksum <span class="hljs-keyword">for</span> Policy_AutoPolicyPersonPhoneCommunicationInfo,,,,<span class="hljs-number">20286</span>
+<span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">40</span>,<span class="hljs-number">697</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">09</span>-<span class="hljs-number">28</span> <span class="hljs-number">05</span>:<span class="hljs-number">57</span>:<span class="hljs-number">40</span>,<span class="hljs-number">697</span> INFO util.ExecutionTimeGauge: ,Persist checksum <span class="hljs-keyword">for</span> Policy_AutoVehicleOwner,,,,<span class="hljs-number">18421</span>
+</code></pre>
+</p>
+</details>
+<h2><a class="anchor" aria-hidden="true" id="decreasing-amount-of-ddl-queries"></a><a href="#decreasing-amount-of-ddl-queries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decreasing amount of DDL queries</h2>
+<p>During report execution, the engine generates different DDL queries to
+update both schemas and partitions, and the queries have visible
+constant performance overhead, especially in cloud environments. Usually
+it isn't a problem because even for pretty big DSL (~3000 lines of
+code) the overhead is usually no more than 20 minutes for clean Hive
+(usually for first ever run of the report) and no more than 15 minutes
+for Hive with existing schema for the cloud environment. But even that
+time can be decreased ~20% by saying the engine that the report is
+going to work with totally new data (in another word intersection of
+sets of already processed data and the data to be processed is an empty
+set). For that you set the following property to <strong>true</strong>:</p>
+<table>
+<thead>
+<tr><th>Spark configuration parameter</th><th>Is required</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>spark.genesis.partition.keep</td><td>No</td><td>false</td><td>Disables all DDLs that are generated to support data consistency when there is overlapping in partitions between reports that are run on different dates</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="changing-storage-level"></a><a href="#changing-storage-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changing storage level</h2>
+<p>There different phases in the DSL execution and two of them work with
+big amount of data:</p>
+<ul>
+<li>Data load and transformation</li>
+<li>Data conversion to data frames and saving the data in Hive</li>
+</ul>
+<p>Those two phases use <a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-persistence">RDD
+persistence</a> with MEMORY_AND_DISK
+storage level that shows optimal performance for big DSL reports with
+lots of data to process. Still the storage level can be changed by the
+setting the following properties to optimize performance of some
+particular report:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Spark configuration parameter</th>
+<th>Is required</th>
+<th>Default value</th>
+<th>Acceptable values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>spark.genesis.transformation.persistence.storageLevel</td>
+<td>No</td>
+<td>MEMORY_AND_DISK</td>
+<td><p>NONE</p>
+<p>DISK_ONLY</p>
+<p>DISK_ONLY_2</p>
+<p>MEMORY_ONLY</p>
+<p>MEMORY_ONLY_2</p>
+<p>MEMORY_ONLY_SER</p>
+<p>MEMORY_ONLY_SER_2</p>
+<p>MEMORY_AND_DISK</p>
+<p>MEMORY_AND_DISK_2</p>
+<p>MEMORY_AND_DISK_SER</p>
+<p>MEMORY_AND_DISK_SER_2</p>
+<p>OFF_HEAP</p></td>
+<td>Sets <a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-persistence">storage level of RDD persistence</a> for load and transformation phase of DSL report execution</td>
+</tr>
+<tr class="even">
+<td>spark.genesis.dataframes.persistence.storageLevel</td>
+<td>No</td>
+<td>MEMORY_AND_DISK</td>
+<td><p>NONE</p>
+<p>DISK_ONLY</p>
+<p>DISK_ONLY_2</p>
+<p>MEMORY_ONLY</p>
+<p>MEMORY_ONLY_2</p>
+<p>MEMORY_ONLY_SER</p>
+<p>MEMORY_ONLY_SER_2</p>
+<p>MEMORY_AND_DISK</p>
+<p>MEMORY_AND_DISK_2</p>
+<p>MEMORY_AND_DISK_SER</p>
+<p>MEMORY_AND_DISK_SER_2</p>
+<p>OFF_HEAP</p></td>
+<td>Sets <a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-persistence">storage level of RDD persistence</a> for data frames conversion and saving phase of DSL report execution</td>
+</tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="hive-queries-logging"></a><a href="#hive-queries-logging" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hive Queries Logging</h2>
+<p>During report execution, the engine generates different SQL Hive
+queries. You can tune the logging of the queries by the following
+parameters:</p>
+<table>
+<thead>
+<tr><th>Spark configuration parameter</th><th>Is required</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>spark.genesis.hive.query.logging</td><td>No</td><td>false</td><td>Enables Hive queries logging. All other logging parameters are applicable only if this parameter is <strong>true</strong></td></tr>
+<tr><td>spark.genesis.hive.query.logging.listDriversForEachQuery</td><td>No</td><td>false</td><td>Logs all registered JDBC drivers before executing any Hive SQL query. It can be used for tracing cluster instability related to missing drivers</td></tr>
+<tr><td>spark.genesis.hive.query.logging.driverManager</td><td>No</td><td>false</td><td>Enables logging/tracing in <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/DriverManager.html">DriverManager</a> (see <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/DriverManager.html#setLogWriter(java.io.PrintWriter)">DriverManager.setLogWriter</a> for details). It can be used for tracing cluster instability related to missing drivers or misconfigured drivers. Be cautious though because enabling this property will cause generating lots of data in Spark driver log.</td></tr>
+</tbody>
+</table>
+<p>Query logs can be found by searching QueryLogger patter in logs and they
+look like in this example:</p>
+<pre><code class="hljs css language-java"><span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">255</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoLicenseInfo WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">255</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.AutoPolicyCoverages WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">255</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_PremiumEntries WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoPolicyPersonEmailCommunicationInfo WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.AutoPolicyCoverageCategory WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoPolicyPerson WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoVehicleRiskItem WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">256</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoPolicyPersonPhoneCommunicationInfo WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">257</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">257</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.UnderwritingClaimCount WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">258</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">258</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.ClaimScores WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">259</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">258</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_CarRatingSpecification WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+<span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">259</span> INFO utils.LineBufferedStream: <span class="hljs-number">2020</span>-<span class="hljs-number">11</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">56</span>:<span class="hljs-number">23</span>,<span class="hljs-number">259</span> INFO util.QueryLogger: Executing Hive query: SELECT DISTINCT year, weekofyear, modelname FROM Policy_AutoPolicySummaryBaseDSL.Policy_AutoPolicySummary WHERE modelName = <span class="hljs-string">'PersonalAuto'</span> ORDER BY year DESC, weekofyear DESC, modelname DESC
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/jabba-jedi.github.io/docs/11.13/zookeeper-deployment"><span class="arrow-prev">← </span><span>Previous</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#dsl">DSL</a></li><li><a href="#syntax">Syntax</a><ul class="toc-headings"><li><a href="#attribute-expressions">Attribute Expressions</a></li><li><a href="#filter-expressions">Filter Expressions</a></li><li><a href="#features">Features</a></li><li><a href="#dsl-example">DSL Example</a></li></ul></li><li><a href="#optimizing-children-table-amount">Optimizing Children Table Amount</a></li><li><a href="#schemas">Schemas</a><ul class="toc-headings"><li><a href="#running-the-interpreter">Running the Interpreter</a></li></ul></li><li><a href="#deployment">Deployment</a></li><li><a href="#configuring-report-partitions-in-dsl">Configuring Report Partitions in DSL</a><ul class="toc-headings"><li><a href="#validation">Validation</a></li></ul></li><li><a href="#measuring-dsl-performance">Measuring DSL Performance</a></li><li><a href="#decreasing-amount-of-ddl-queries">Decreasing amount of DDL queries</a></li><li><a href="#changing-storage-level">Changing storage level</a></li><li><a href="#hive-queries-logging">Hive Queries Logging</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/jabba-jedi.github.io/" class="nav-home"><img src="/jabba-jedi.github.io/img/favicon.ico" alt="EIS Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/jabba-jedi.github.io/docs/doc1.html">Getting Started (or other categories)</a><a href="/jabba-jedi.github.io/docs/doc2.html">Guides (or other categories)</a><a href="/jabba-jedi.github.io/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/jabba-jedi.github.io/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/jabba-jedi.github.io/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/jabba-jedi.github.io/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 EIS</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                appId: 'app-id',
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
